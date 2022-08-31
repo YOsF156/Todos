@@ -1,0 +1,30 @@
+.is-expand-true {
+    padding: 0;
+    transform: rotate(180deg) translateX(0) translateY(0);
+    cursor: pointer;
+}
+
+.is-expand-false {
+    cursor: pointer;
+}
+
+
+.more-details {
+    animation: open 0.2s timing-function delay 1 direction fill-mode;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 15%
+}
+
+@media only screen and (max-width: 700px) {
+    /* #li {
+        height: 2em;
+    } */
+
+    .action-buttons {
+        width: 20%;
+    }
+}
