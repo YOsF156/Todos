@@ -5,9 +5,14 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import About from './pages/About';
 import Header from './components/Header';
+import { observer } from 'mobx-react';
+import rootStore from './stores/main';
+import Form from './components/AddTask/Form';
+
 
 function App() {
-  const [isLogin, setIsLogin] = useState("43")
+  const { isLogin } = rootStore
+  // const [isLogin, setIsLogin] = useState("43")
   return (
     <div className="App">
       <Header />
@@ -20,8 +25,9 @@ function App() {
 
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
+      <Form />
     </div>
   );
 }
 
-export default App;
+export default observer(App);

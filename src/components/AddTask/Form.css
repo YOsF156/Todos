@@ -1,0 +1,120 @@
+.form-container {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 15px 15px 0px 0;
+    width: 95%;
+    right: 2.5%;
+    background-color: rgb(134, 211, 216);
+}
+
+.form-container::-webkit-scrollbar {
+    display: none;
+}
+
+.btn-part {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+
+}
+
+.btn-form {
+    width: 5em;
+    height: 3em;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 3em;
+
+}
+
+.btn-part button {
+    background-color: rgba(56, 11, 218, 0.858);
+}
+
+.btn-part input {
+    background-color: rgba(218, 11, 108, 0.858);
+
+}
+
+form {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+}
+
+form h1 {
+    color: rgb(77, 1, 77);
+    text-align: center;
+}
+
+
+.add-task {
+    display: grid;
+    place-items: center;
+    border-radius: 15px 15px 0px 0;
+    width: 95%;
+    right: 2.5%;
+    background-color: rgb(134, 211, 216);
+
+
+}
+
+.add-task-container {
+    /* width: 95%; */
+    position: fixed;
+    /* right: 2.5%; */
+    padding: 0;
+    height: 4rem;
+    /* background-color: rgb(134, 211, 216); */
+    bottom: 0;
+    border-radius: 15px 15px 0px 0;
+
+
+}
+
+/* .add-task-container-expand {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    transition: up 11.s;
+    overflow: hidden;
+    overflow-y: scroll;
+
+} */
+
+.add-task-background {
+    border-radius: 35px;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    margin-top: -4em;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)),
+        url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center; */
+
+}
+
+
+
+.add-task-form input {
+    height: 3rem;
+    margin-top: 1rem;
+    border: 1px solid rgb(83, 79, 79);
+    border-radius: 7px;
+    padding: 0.5rem;
+}

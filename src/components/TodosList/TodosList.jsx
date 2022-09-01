@@ -1,47 +1,11 @@
 import React, { useState } from 'react'
 import Todo from '../Todo/Todo'
 import "./TodosList.css"
-const todos = [{
-    id: 1,
-    title: "go shoping",
-    details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-    exp: new Date(),
-    done: false,
-    repeat: "daily",
-    preyority: "high"
+import { observer } from 'mobx-react'
+import rootStore from '../../stores/main'
 
-},
-{
-    id: 2,
-    title: "sfdgsfdgsfg",
-    details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-    exp: new Date(),
-    done: true,
-    repeat: "daily",
-    preyority: "high"
-
-},
-{
-    id: 3,
-    title: "go shddddoping",
-    details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-    exp: new Date(),
-    done: false,
-    repeat: "daily",
-    preyority: "high"
-
-}, {
-    id: 4,
-    title: "go shdscsdfsdfdbdoping",
-    details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-    exp: new Date(),
-    done: true,
-    repeat: "daily",
-    preyority: "high"
-
-},
-]
 function TodosList() {
+    const { todos } = rootStore
     const [list, setList] = useState(todos)
 
     const handleCheck = (id) => {
@@ -61,4 +25,4 @@ function TodosList() {
     )
 }
 
-export default TodosList
+export default observer(TodosList)

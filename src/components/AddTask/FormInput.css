@@ -32,9 +32,11 @@
 
 
 .form-input input {
-    width: 20em;
-    height: 2em;
-    padding: 0.2em;
+    width: 17rem;
+    min-height: 2rem;
+    word-wrap: break-word;
+    font-size: 1.2rem;
+    padding: 0.2rem;
     margin: 0.2em 0;
     border: 1px solid gray;
     border-radius: 5px;

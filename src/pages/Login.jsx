@@ -1,4 +1,5 @@
 import React from 'react'
+import { observer } from "mobx-react";
 
 function Login() {
     return (
@@ -6,4 +7,4 @@ function Login() {
     )
 }
 
-export default Login
+export default observer(Login)

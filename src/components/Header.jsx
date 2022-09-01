@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { observer } from "mobx-react"
 function Header() {
     return (
         <div className="header">
@@ -11,4 +11,4 @@ function Header() {
     )
 }
 
-export default Header
+export default observer(Header)

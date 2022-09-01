@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { observer } from 'mobx-react'
 import "./FormInput.css"
+
+
 function FormInput(props) {
     const [focused, setFocused] = useState(false);
-    const { label, errorMessage, onChange, id, ...inputProps } = props;
+    const { label, errorMessage, onChange, ...inputProps } = props;
 
     const handleFocus = (e) => {
         setFocused(true);
@@ -42,4 +45,4 @@ function FormInput(props) {
     )
 }
 
-export default FormInput
+export default observer(FormInput)
