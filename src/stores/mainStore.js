@@ -36,7 +36,6 @@ class MainStore {
     async setTodos() {
         try {
             const Todos = await MainApi.getAllTasks()
-            console.log("🚀 ~ file: mainStore.js ~ line 39 ~ MainStore ~ setTodos ~ Todos", Todos)
             // runInAction(() => {
             //     this.todos = Todos.data
 
