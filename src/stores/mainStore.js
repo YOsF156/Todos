@@ -4,7 +4,7 @@ import {
     makeAutoObservable,
     runInAction,
 } from "mobx";
-// import MainApi from "../Apis/AuthApi";
+import MainApi from "./api/MainApi";
 
 
 class MainStore {
@@ -13,46 +13,7 @@ class MainStore {
         makeAutoObservable(this);
     }
     user = {};
-    todos = [{
-        id: 1,
-        title: "go shoping",
-        details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-        exp: new Date(),
-        done: false,
-        repeat: "daily",
-        preyority: "high"
-
-    },
-    {
-        id: 2,
-        title: "sfdgsfdgsfg",
-        details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-        exp: new Date(),
-        done: true,
-        repeat: "daily",
-        preyority: "high"
-
-    },
-    {
-        id: 3,
-        title: "go shddddoping",
-        details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-        exp: new Date(),
-        done: false,
-        repeat: "daily",
-        preyority: "high"
-
-    }, {
-        id: 4,
-        title: "go shdscsdfsdfdbdoping",
-        details: "ascdcdc asdcsdvsdv cxvsfgsrv vgwefsdv",
-        exp: new Date(),
-        done: true,
-        repeat: "daily",
-        preyority: "high"
-
-    },
-    ];
+    todos;
     auth = {};
     formData = {}
     formShow = false
@@ -60,6 +21,7 @@ class MainStore {
 
     hideForm = () => {
         runInAction(() => {
+            this.formData = {}
             this.formShow = false;
         })
     }
@@ -71,44 +33,53 @@ class MainStore {
         })
     }
 
-    setUser(token) {
-        runInAction(() => {
-        })
-    }
-    signUp = async (user) => {
+    async setTodos() {
         try {
-            runInAction(async () => {
+            const Todos = await MainApi.getAllTasks()
+            console.log("🚀 ~ file: mainStore.js ~ line 39 ~ MainStore ~ setTodos ~ Todos", Todos)
+            // runInAction(() => {
+            //     this.todos = Todos.data
 
-            })
-        } catch (err) {
-            runInAction(() => {
-
-            })
-        }
-    };
-
-    logOut = async () => {
-        localStorage.clear()
-        runInAction(() => { this.isLogin = false; })
-    }
-
-    login = async (body) => {
-        try {
-            // const succses = await MainApi.login(body);
-            runInAction(() => {
-                this.isLogin = true
-
-            })
-            // succses ? this.isLogin = true : this.isLogin = false;
+            // })
+            return Todos.data
         } catch (error) {
-
+            console.log({ error })
         }
     }
+    // signUp = async (user) => {
+    //     try {
+    //         runInAction(async () => {
 
+    //         })
+    //     } catch (err) {
+    //         runInAction(() => {
 
+    //         })
+    //     }
+    // };
 
+    // logOut = async () => {
+    //     localStorage.clear()
+    //     runInAction(() => { this.isLogin = false; })
+    // }
 
+    // login = async (body) => {
+    //     try {
+    //         // const succses = await MainApi.login(body);
+    //         runInAction(() => {
+    //             this.isLogin = true
 
+    //         })
+    //         // succses ? this.isLogin = true : this.isLogin = false;
+    //     } catch (error) {
+
+    //     }
+    // }
 }
+
+
+
+
+
 
 export default MainStore;

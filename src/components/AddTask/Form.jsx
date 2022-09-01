@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 import FormInput from './FormInput'
 import rootStore from '../../stores/main'
@@ -6,7 +6,10 @@ import "./Form.css"
 
 function Form() {
     const { formShow, formData, hideForm } = rootStore;
-    const [values, setValues] = useState(formData?.values);
+    const [values, setValues] = useState(formData.values);
+    console.log("🚀 ~ file: Form.jsx ~ line 10 ~ Form ~ values", values)
+
+
 
 
     const onChange = (e) => {
@@ -16,14 +19,15 @@ function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+
     }
 
     return (
         <>
             {formShow && <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <h1>{formData.hl}</h1>
-                    {formData.inputs.map((input) => (
+                    <h1>{formData?.hl}</h1>
+                    {formData?.inputs.map((input) => (
                         <FormInput key={input.name}
                             {...input}
                             value={values[input.name]}
@@ -32,7 +36,7 @@ function Form() {
                         />
                     ))}
                     <div className="btn-part">
-                        <input onClick={hideForm} className="btn-form" type="reset" value="ביטול" />
+                        <input onClick={() => { setValues({}); hideForm() }} className="btn-form" type="reset" value="ביטול" />
                         <button className="btn-form">שמירה</button>
                     </div>
                 </form>
