@@ -16,10 +16,10 @@ function Todo({ title, details, exp, done, handleCheck, id }) {
 
     return (
         <div id="li" className={done ? "done" : ""}>
-            <div className={"task-header"}>
+            <div className="task-header">
                 <div onClick={() => handleCheck(id)} className={"checkbox"}>{done ? <TaskAltTwoToneIcon color="success" /> : <Brightness1TwoToneIcon />}</div>
                 <label htmlFor={id} > {title}</label>
-                <div className={"action-buttons"}>
+                <div className="action-buttons">
                     <DeleteTwoToneIcon color="error" />
                     <DriveFileRenameOutlineTwoToneIcon color='secondary' />
                     <div onClick={handleExpand} className={"is-expand-" + expand}>

@@ -17,11 +17,18 @@
   background-color: #556b97;
   height: 10vh;
   width: 100vw;
-  display: flex;
-  /* align-items: bottom; */
-  justify-content: center;
-  color: rgb(181, 112, 112);
+  color: rgb(26, 229, 185);
   padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.header .headlines {
+  display: flex;
+}
+
+.header h1 {
   margin: 0;
 }
 
@@ -81,6 +88,11 @@ span {
 
 
 .page-container {
+  background: linear-gradient(rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)),
+    url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+  background-size: cover;
+  background-position: center;
   display: grid;
   align-items: top;
   justify-items: center;
@@ -88,5 +100,5 @@ span {
   width: 100vw;
   padding: 0;
   margin: 0;
-  background-color: rgb(250, 237, 237);
+  /* background-color: rgb(250, 237, 237); */
 }

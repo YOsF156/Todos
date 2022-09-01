@@ -1,0 +1,50 @@
+.form-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    border-radius: 7px;
+
+}
+
+.btn-part {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+
+}
+
+.btn-form {
+    width: 5em;
+    height: 3em;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 3em;
+
+}
+
+.btn-part button {
+    background-color: rgba(56, 11, 218, 0.858);
+}
+
+.btn-part input {
+    background-color: rgba(218, 11, 108, 0.858);
+
+}
+
+form {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+}
+
+form h1 {
+    color: rgb(77, 1, 77);
+    text-align: center;
+}

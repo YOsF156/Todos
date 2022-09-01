@@ -10,7 +10,7 @@
 
 
 .more-details {
-    animation: open 0.2s timing-function delay 1 direction fill-mode;
+    transition: height 2s;
 }
 
 .action-buttons {

@@ -1,15 +1,21 @@
 .add-task {
     display: grid;
     place-items: center;
+    border-radius: 15px 15px 0px 0;
+    width: 95%;
+    right: 2.5%;
+    background-color: rgb(134, 211, 216);
+
+
 }
 
 .add-task-container {
-    width: 95%;
+    /* width: 95%; */
     position: fixed;
-    right: 2.5%;
+    /* right: 2.5%; */
     padding: 0;
     height: 4rem;
-    background-color: rgb(134, 211, 216);
+    /* background-color: rgb(134, 211, 216); */
     bottom: 0;
     border-radius: 15px 15px 0px 0;
 
@@ -18,10 +24,11 @@
 
 .add-task-container-expand {
     height: 100vh;
-    width: 100vw;
     position: absolute;
-    background-color: rgba(109, 101, 101, 0.8);
     top: 0;
+    transition: up 11.s;
+    overflow: hidden;
+    overflow-y: scroll;
 
 }
 
@@ -34,14 +41,20 @@
     display: grid;
     place-items: center;
     cursor: pointer;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)),
+        url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center; */
+
 }
 
-.add-task-form {
+/* .add-task-form {
     width: clamp(23ch, 50%, 46ch);
     display: flex;
     flex-direction: column;
     padding: 1rem;
-}
+} */
 
 .add-task-form input {
     height: 3rem;

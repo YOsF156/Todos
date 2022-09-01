@@ -1,15 +1,128 @@
 import React, { useState } from 'react'
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import { useForm } from 'react-hook-form';
 import "./AddTask.css"
+import AddTaskForm from './AddTaskForm';
+
+const value = {
+    title: "",
+    details: "",
+    date: "",
+    time: "",
+    repeat: "",
+    priority: "",
+};
+
+// const inputs = [
+//     {
+//         id: 1,
+//         name: "title",
+//         type: "text",
+//         placeholder: "Username",
+//         errorMessage:
+//             "Username should be 3-16 characters and shouldn't include any special character!",
+//         label: "Username",
+//         pattern: "^[A-Za-z0-9]{3,16}$",
+//         required: true,
+//     },
+//     {
+//         id: 2,
+//         name: "email",
+//         type: "email",
+//         placeholder: "Email",
+//         errorMessage: "It should be a valid email address!",
+//         label: "Email",
+//         required: true,
+//     },
+//     {
+//         id: 3,
+//         name: "birthday",
+//         type: "date",
+//         placeholder: "Birthday",
+//         label: "Birthday",
+//     },
+//     {
+//         id: 4,
+//         name: "password",
+//         type: "password",
+//         placeholder: "Password",
+//         errorMessage:
+//             "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+//         label: "Password",
+//         pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+//         required: true,
+//     },
+//     {
+//         id: 5,
+//         name: "confirmPassword",
+//         type: "password",
+//         placeholder: "Confirm Password",
+//         errorMessage: "Passwords don't match!",
+//         label: "Confirm Password",
+//         pattern: value.password,
+//         required: true,
+//     },
+// ];
+export const inputs = [
+    {
+        id: 1,
+        name: "title",
+        type: "text",
+        placeholder: "כותרת",
+        errorMessage:
+            "הכותרת חייבת להכיל 3 תווים ועד 20 תווים",
+        label: "כותרת",
+        pattern: "^.{4,20}$",
+        required: true,
+    },
+    {
+        id: 2,
+        name: "details",
+        type: "text",
+        placeholder: "פרטים",
+        errorMessage: "צריך להכיל תו אחד ועד 200 תווים",
+        label: "פרטים",
+        pattern: "^.{1,20}$",
+        required: true,
+    },
+    {
+        id: 3,
+        name: "date",
+        type: "date",
+        label: "תאריך",
+        required: true,
+    },
+    {
+        id: 4,
+        name: "time",
+        type: "time",
+        label: "שעה",
+        required: true,
+    },
+    {
+        id: 4,
+        name: "repeat",
+        type: "radio",
+        label: "חזרתיות",
+        list: ["ללא", "יומית", "שבועית", "חודשית"],
+        required: true,
+    },
+    {
+        id: 5,
+        name: "priority",
+        type: "radio",
+        label: "עדיפות",
+        list: ["נמוכה", "בינונית", "גבוהה"],
+        required: true,
+    },
+];
 
 
 function AddTask() {
     const [expand, setExpand] = useState(false)
-    const [radios, setRadios] = useState({ none: true, daily: false, weekly: false, monthly: false, yearly: false })
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+
+    const handleClose = () => {
+        setExpand(false)
+    }
     return (
         <div className={"add-task add-task-container" + (expand ? "-expand" : "")} >
             {!expand ?
@@ -17,44 +130,7 @@ function AddTask() {
                     <AddTaskIcon />
                 </div>
                 :
-
-
-
-
-
-                <form className="add-task-form" onSubmit={handleSubmit(onSubmit)}>
-                    <input type="text" placeholder="title" {...register("title", { required: true, maxLength: 30 })} />
-                    <input type="text" placeholder="details" {...register("details", { required: true, maxLength: 200 })} />
-                    <input type="datetime-local" placeholder="execute" {...register("execute", { required: true })} />
-
-                    <input {...register("repeat", { required: true })} type="radio" value="יומי" />
-                    <input {...register("repeat", { required: true })} type="radio" value=" שבועי" />
-                    <input {...register("repeat", { required: true })} type="radio" value=" חודשי" />
-                    <input {...register("repeat", { required: true })} type="radio" value=" שנתי" />
-
-                    <input {...register("priority", { required: true })} type="radio" value="גבוהה" />
-                    <input {...register("priority", { required: true })} type="radio" value="בינונית" />
-                    <input {...register("priority", { required: true })} type="radio" value="נמוכה" />
-
-                    <input type="submit" />
-
-
-                    {/* <form className="add-task-form">
-                         <legend>
-                        מה היעד הבא...  </legend>
-                    <input type="text" placeholder="מה היעד הבא..." name="title" />
-
-
-                    <input type='text' placeholder="enter details" required />
-                    <input type="date" placeholder="תאריך יעד" />
-                    <label htmlFor="repeat" className="repeat-label" > חזרתיות</label>
-                    <input type="radio" className="btn-check" name="options-outlined" id="daily" autocomplete="off" />
-                    <label class="btn btn-outline-success" htmlFor="daily">יומי</label>
-                    <input type="radio" className="btn-check" name="options-outlined" id="monthly" autocomplete="off" />
-                    <label class="btn btn-outline-success circle"  htmlFor="monthly">חודשי</label> */}
-
-                </form>
-            }
+                <AddTaskForm value={value} handleClose={handleClose} inputs={inputs} hl={"הוספת מטלה"} />}
 
         </div >
     )
