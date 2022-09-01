@@ -7,7 +7,6 @@ import "./Form.css"
 function Form() {
     const { formShow, formData, hideForm } = rootStore;
     const [values, setValues] = useState(formData.values);
-    console.log("🚀 ~ file: Form.jsx ~ line 10 ~ Form ~ values", values)
 
 
 
