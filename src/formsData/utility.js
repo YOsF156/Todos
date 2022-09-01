@@ -1,12 +1,4 @@
-const taskValues = {
 
-    title: "",
-    details: "",
-    date: "",
-    time: "",
-    repeat: "",
-    priority: "",
-};
 
 export const baseData = {
     login: {
@@ -81,7 +73,7 @@ export const baseData = {
                 type: "text",
                 placeholder: "כותרת",
                 errorMessage:
-                    "הכותרת חייבת להכיל 3 תווים ועד 67 תווים",
+                    "הכותרת חייבת להכיל 4 תווים ועד 67 תווים",
                 label: "כותרת",
                 pattern: "^.{4,67}$",
                 required: true,
@@ -127,7 +119,15 @@ export const baseData = {
                 required: true,
             },
         ],
-        values: { ...taskValues }
+        values: {
+
+            title: "",
+            details: "",
+            date: "",
+            time: "",
+            repeat: "",
+            priority: "",
+
+        }
     }
 }
-
