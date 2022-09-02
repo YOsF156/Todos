@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { observer } from 'mobx-react'
+import React, { useState } from 'react'
 import FormInput from './FormInput'
-import rootStore from '../../stores/main'
 import "./Form.css"
 
-function Form() {
-    const { formShow, formData, hideForm } = rootStore;
-    const [values, setValues] = useState(formData.values);
+function Form({ formData, setFormData }) {
+    // const { formShow, hideForm } = rootStore;
+    const [values, setValues] = useState(formData?.values);
 
 
 
@@ -23,25 +21,27 @@ function Form() {
 
     return (
         <>
-            {formShow && <div className="form-container">
+            <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <h1>{formData?.hl}</h1>
-                    {formData?.inputs.map((input) => (
-                        <FormInput key={input.name}
+                    {formData?.inputs.map((input) =>
+
+                        <FormInput key={input.placeholder}
                             {...input}
                             value={values[input.name]}
-                            onChange={onChange}
+                            onChange={onChange} />
 
-                        />
-                    ))}
+
+
+                    )}
                     <div className="btn-part">
-                        <input onClick={() => { setValues({}); hideForm() }} className="btn-form" type="reset" value="ביטול" />
-                        <button className="btn-form">שמירה</button>
+                        <input onClick={() => { setValues({}); setFormData("") }} className="btn-form" type="reset" value="ביטול" />
+                        <button type="submit" className="btn-form">שמירה</button>
                     </div>
                 </form>
-            </div>}
+            </div>
         </>
     )
 }
 
-export default observer(Form)
+export default Form

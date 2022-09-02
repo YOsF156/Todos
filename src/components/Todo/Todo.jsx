@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { observer } from 'mobx-react'
 import TaskAltTwoToneIcon from '@mui/icons-material/TaskAltTwoTone';
 import Brightness1TwoToneIcon from '@mui/icons-material/Brightness1TwoTone';
@@ -8,13 +8,16 @@ import DriveFileRenameOutlineTwoToneIcon from '@mui/icons-material/DriveFileRena
 import { baseData } from '../../formsData/utility';
 import rootStore from '../../stores/main';
 import "./Todo.css"
+import { MainContext } from '../../App';
 
-function Todo({ title, details, date, time, done, handleCheck, _id }) {
+function Todo(props) {
+    const { setFormData } = useContext(MainContext)
+    const [expand, setExpand] = useState(false);
+    const { title, details, date, time, done, handleCheck, _id } = props;
     const { openForm, } = rootStore;
-    const [expand, setExpand] = useState(false)
 
     const formAction = (id) => {
-        openForm({ inputs: baseData.task.inputs, values: baseData.task.values, hl: "עריכת משימה" })
+        setFormData({ inputs: baseData.task.inputs, values: { ...props }, hl: "עריכת משימה" })
     }
 
 
