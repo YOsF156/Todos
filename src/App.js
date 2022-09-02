@@ -8,24 +8,27 @@ import Header from './components/Header';
 import { observer } from 'mobx-react';
 import rootStore from './stores/main';
 import Form from './components/AddTask/Form';
+import { createContext } from 'react';
 
-
+export const MainContext = createContext()
 function App() {
+  const [formData, setFormData] = useState(null)
   const { isLogin } = rootStore
-  // const [isLogin, setIsLogin] = useState("43")
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path='/' element={isLogin ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-        {isLogin ? <Route path='/home' element={<Home />} /> :
-          <Route path='/login' element={<Login />} />
-        }
-        <Route path='/about' element={<About />} />
+      <MainContext.Provider value={{ setFormData }} >
 
-        <Route path='*' element={<Navigate to="/" />} />
-      </Routes>
-      <Form />
+        <Header />
+        <Routes>
+          <Route path='/' element={isLogin ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+          {isLogin ? <Route path='/home' element={<Home />} /> :
+            <Route path='/login' element={<Login />} />
+          }
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<Navigate to="/" />} />
+        </Routes>
+        {formData && <Form formData={formData} setFormData={setFormData} />}
+      </MainContext.Provider>
     </div>
   );
 }

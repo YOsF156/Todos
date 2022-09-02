@@ -33,6 +33,7 @@ function FormInput(props) {
                                 {...inputProps}
                                 id={item}
                                 value={item}
+                                checked={item === props.value}
                                 onChange={onChange}
                                 onBlur={handleFocus}
                             />
