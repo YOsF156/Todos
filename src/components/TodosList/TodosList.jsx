@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import rootStore from '../../stores/main'
 
 function TodosList() {
-    const { setTodos, todos } = rootStore
+    const { setTodos, } = rootStore
     const [list, setList] = useState([])
 
 
@@ -20,7 +20,6 @@ function TodosList() {
 
     const handleCheck = (id) => {
         const newList = list.map(item => {
-
             if (item._id === id) { item.done = !(item.done) }
             return item
         })
