@@ -25,7 +25,7 @@ function App() {
           <Route path='/login' element={<Login />} />
 
           <Route path='/about' element={<About />} />
-          <Route path='/*' element={<Navigate to="/" />} />
+          {/* <Route path='/*' element={<Navigate to="/" />} /> */}
         </Routes>
         {formData && <Form formData={formData} setFormData={setFormData} />}
       </MainContext.Provider>
